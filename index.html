@@ -11,7 +11,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Scribbyforge | Custom 3D Printed Gifts & Miniatures" />
   <meta property="og:description" content="Custom 3D printed gifts and decor made to inspire creativity. Visit our Etsy store to order your unique print." />
-  <meta property="og:image" content="./dragon2logo.png" />
+  <meta property="og:image" content=".images/dragon2logo.png" />
   <meta property="og:url" content="https://www.etsy.com/shop/ScribbybyKen" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Scribbyforge" />
@@ -23,8 +23,8 @@
   <meta name="twitter:image" content="./dragon2logo.png" />
 
   <!-- Icons -->
-  <link rel="icon" type="image/png" href="./images/dragon2logo.png" />
-  <link rel="apple-touch-icon" href="./images/dragon2logo.png" />
+  <link rel="icon" type="image/png" href="/images/dragon2logo.png" />
+  <link rel="apple-touch-icon" href="/images/dragon2logo.png" />
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -68,7 +68,7 @@
     section { padding: 56px 20px; text-align: center; }
     .container { max-width: 1100px; margin: 0 auto; }
 
-    .hero { position: relative; background: url('./dradon3.jpeg') center/cover no-repeat; color: var(--ink); padding: 140px 20px; }
+    .hero { position: relative; background: url('images/dradon3.jpeg') center/cover no-repeat; color: var(--ink); padding: 140px 20px; }
     .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.88)); z-index: 0; }
     .hero .container { position: relative; z-index: 1; }
     .hero h1 { font-size: 3rem; margin: 0 0 8px; color: var(--brand); text-shadow: 0 0 8px rgba(34,197,94,.45), 0 0 18px rgba(34,197,94,.25); animation: neonPulse 3.2s ease-in-out infinite; }
@@ -126,7 +126,7 @@
   <header>
     <div class="nav">
       <a class="brand" href="#intro">
-        <img class="brand-logo" src="./dragon2logo.png" alt="Scribbyforge logo" />
+        <img class="brand-logo" src="images/dragon2logo.png" alt="Scribbyforge logo" />
         <span>Scribbyforge</span>
       </a>
       <div class="nav-links">
@@ -156,29 +156,68 @@
       </div>
       <div class="gallery-grid">
         <div class="gallery-item" data-category="gifts">
-          <img src="./dradon3.jpeg" alt="Gift Print">
+          <img src="images/" alt="Gift Print">
         </div>
         <div class="gallery-item" data-category="miniatures">
-          <img src="./dragon2logo.png" alt="Miniature">
+          <img src="images/" alt="Miniature">
         </div>
         <div class="gallery-item" data-category="decor">
-          <img src="./dradon3.jpeg" alt="Decor">
+          <img src="images/dragon2logo.png" alt="Decor">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="container">
-      <h3>Contact Scribbyforge</h3>
-      <form id="contactForm" style="max-width:420px; margin:0 auto; display:flex; flex-direction:column; gap:10px;">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button class="btn" type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+<section id="contact">
+  <div class="container">
+    <h3>Contact Scribbyforge</h3>
+
+    <form id="contactForm"
+          action="https://formspree.io/f/mrboargj"
+          method="POST"
+          style="max-width:420px; margin:0 auto; display:flex; flex-direction:column; gap:10px;">
+      <!-- honeypot (spam trap) -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+
+      <!-- optional: subject line -->
+      <input type="hidden" name="_subject" value="New contact from Scribbyforge site" />
+      <!-- optional: redirect after success -->
+      <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" /> -->
+
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+
+    <p id="contactStatus" style="margin-top:10px;color:#cbd5e1;"></p>
+  </div>
+</section>
+
+<script>
+  // progressive enhancement: ajax submit for nicer UX
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('contactStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = 'Sending...';
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        statusEl.textContent = 'Thanks! We received your message.';
+        form.reset();
+      } else {
+        statusEl.textContent = 'Hmm, something went wrong. Please try again.';
+      }
+    } catch (err) {
+      statusEl.textContent = 'Network error. Check your connection and try again.';
+    }
+  });
+</script>
 
   <footer>
     <p>&copy; 2025 Scribbyforge. All rights reserved.</p>
