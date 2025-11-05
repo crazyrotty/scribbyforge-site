@@ -1,172 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scribbyforge | Custom 3D Printed Gifts & Miniatures</title>
-  <meta name="description" content="Scribbyforge crafts personalized 3D printed gifts, decor, and miniatures. From custom prints to creative prototypes, we bring your ideas to life. Order via Etsy today!" />
-  <meta name="keywords" content="3D printing, custom gifts, personalized miniatures, 3D printed decor, Etsy 3D prints, Scribbyforge, custom 3D models, unique gifts" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Scribbyforge | Custom 3D Printed Gifts & Miniatures" />
-  <meta property="og:description" content="Custom 3D printed gifts and decor made to inspire creativity. Visit our Etsy store to order your unique print." />
-  <meta property="og:image" content=".images/dragon2logo.png" />
-  <meta property="og:url" content="https://www.etsy.com/shop/ScribbybyKen" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Scribbyforge" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Scribbyforge | Custom 3D Printed Gifts & Miniatures" />
-  <meta name="twitter:description" content="Custom 3D printed gifts, decor, and miniatures. Order via our Etsy store." />
-  <meta name="twitter:image" content="./dragon2logo.png" />
-
-  <!-- Icons -->
-  <link rel="icon" type="image/png" href="/images/dragon2logo.png" />
-  <link rel="apple-touch-icon" href="/images/dragon2logo.png" />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Scribbyforge",
-    "url": "https://www.etsy.com/shop/ScribbybyKen",
-    "logo": "./dragon2logo.png",
-    "image": ["./dradon3.jpeg", "./dragon2logo.png"],
-    "description": "Custom 3D printed gifts, decor, and miniatures.",
-    "sameAs": ["https://www.etsy.com/shop/ScribbybyKen"],
-    "brand": { "@type": "Brand", "name": "Scribbyforge" },
-    "potentialAction": {
-      "@type": "OrderAction",
-      "target": "https://www.etsy.com/shop/ScribbybyKen"
-    }
-  }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scribbyforge | 3D Printed Gifts & Custom Prints</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root { --brand:#22c55e; --brand-2:#16a34a; --ink:#f9fafb; --muted:#d1d5db; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #0b0f14; color: var(--ink); }
+    body { font-family: 'Poppins', sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #1e293b; position: sticky; top: 0; z-index: 50; }
+    nav img { height: 48px; }
+    nav a { color: #a7f3d0; text-decoration: none; font-weight: 600; margin: 0 1rem; }
+    nav a:hover { color: #34d399; }
 
-    /* Futuristic type scale */
-    h1, h2, h3 { text-transform: uppercase; letter-spacing: .04em; font-weight: 800; }
-    p { font-size: .98rem; line-height: 1.6; color: var(--muted); font-weight: 400; }
+    header { text-align: center; padding: 4rem 1rem; background: linear-gradient(to bottom right, #022c22, #064e3b); color: #a7f3d0; }
+    header h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 10px #34d399; }
 
-    header { position: sticky; top: 0; z-index: 20; background: #111827cc; backdrop-filter: blur(6px); border-bottom: 1px solid #1f2937; }
-    .nav { max-width: 1100px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display:flex; align-items:center; gap:10px; font-weight: 800; color: var(--ink); text-decoration:none; }
-    .brand span { color: var(--brand); }
-    .brand-logo { height: 28px; width: 28px; object-fit: contain; border-radius: 6px; }
+    section { padding: 3rem 1rem; text-align: center; }
+    h2 { color: #34d399; }
 
-    .nav-links { display: flex; gap: 18px; align-items: center; }
-    .nav-links a { text-decoration: none; color: var(--muted); padding: 8px 10px; border-radius: 8px; font-weight:700; transition: color .2s, text-shadow .2s, background .2s; }
-    .nav-links a:hover { color: var(--ink); background: #12202a; text-shadow: 0 0 8px rgba(34,197,94,.55); }
+    .gallery-filters { margin-bottom: 2rem; }
+    .filter-btn { background: #1e293b; color: #a7f3d0; border: 1px solid #34d399; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; margin: 0 0.25rem; }
+    .filter-btn:hover, .filter-btn.active { background: #34d399; color: #0f172a; }
 
-    section { padding: 56px 20px; text-align: center; }
-    .container { max-width: 1100px; margin: 0 auto; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 12px; }
+    .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; cursor: pointer; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .cap { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.8); color: #a7f3d0; padding: 0.5rem; font-size: 0.9rem; }
 
-    .hero { position: relative; background: url('images/dradon3.jpeg') center/cover no-repeat; color: var(--ink); padding: 140px 20px; }
-    .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.88)); z-index: 0; }
-    .hero .container { position: relative; z-index: 1; }
-    .hero h1 { font-size: 3rem; margin: 0 0 8px; color: var(--brand); text-shadow: 0 0 8px rgba(34,197,94,.45), 0 0 18px rgba(34,197,94,.25); animation: neonPulse 3.2s ease-in-out infinite; }
+    /* Lightbox */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index: 90; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width: 92vw; max-height: 82vh; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,.6); }
+    .lightbox .caption { position: absolute; bottom: 24px; left:50%; transform: translateX(-50%); padding: 8px 12px; border-radius: 10px; color:#e5e7eb; background: rgba(17,24,39,.7); border:1px solid rgba(34,197,94,.35); text-shadow: 0 0 6px rgba(34,197,94,.35); }
+    .lightbox .close { position:absolute; top:14px; right:16px; font-size:28px; color:#e5e7eb; cursor:pointer; }
+    .lightbox .nav { position:absolute; top:50%; transform: translateY(-50%); display:flex; width:100%; justify-content:space-between; padding: 0 16px; pointer-events:none; }
+    .lightbox .nav button { pointer-events:auto; background: rgba(17,24,39,.6); color:#e5e7eb; border:1px solid rgba(34,197,94,.35); border-radius: 10px; padding: 8px 10px; font-weight:700; cursor:pointer; }
 
-    @keyframes neonPulse {
-      0%, 100% { text-shadow: 0 0 8px rgba(34,197,94,.45), 0 0 18px rgba(34,197,94,.25), 0 0 36px rgba(34,197,94,.12); }
-      50% { text-shadow: 0 0 10px rgba(34,197,94,.75), 0 0 28px rgba(34,197,94,.55), 0 0 56px rgba(34,197,94,.32); }
-    }
-
-    .btn { background: var(--brand); color:#0b0f14; border:0; padding:12px 18px; border-radius: 12px; cursor:pointer; font-weight:700; letter-spacing:.02em; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(34,197,94,.25), 0 0 18px rgba(34,197,94,.35); }
-
-    .btn-etsy { display:inline-flex; align-items:center; gap:10px; background: linear-gradient(180deg, var(--brand), var(--brand-2)); color: #0b0f14; padding: 12px 18px; border-radius: 14px; text-decoration:none; font-weight:800; letter-spacing:.02em; transition: box-shadow .25s, transform .18s, filter .2s; }
-    .btn-etsy:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(22,163,74,.38), 0 0 26px rgba(34,197,94,.55), 0 0 60px rgba(34,197,94,.25); filter: saturate(1.05); }
-
-    .filters { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
-    .filter-btn { background:#0e141b; color:#cbd5e1; border:1px solid #1f2937; padding:10px 14px; border-radius:999px; cursor:pointer; font-weight:700; transition: background .2s, box-shadow .2s, text-shadow .2s; }
-    .filter-btn.active { background: var(--brand); color:#0b0f14; border-color: var(--brand); box-shadow: 0 6px 14px rgba(34,197,94,.22); text-shadow: 0 0 8px rgba(34,197,94,.45); }
-
-    .gallery-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
-    .gallery-item { position: relative; border-radius: 14px; overflow: hidden; border:1px solid #12202a; background:#0e141b; cursor:pointer; opacity:0; transform: translateY(14px) scale(.98); transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease; }
-    .gallery-item.show { opacity:1; transform: translateY(0) scale(1); }
-    .gallery-item.hidden { display:none; }
-
-    /* Floating action area: wrapper + button + tooltip */
-    .fab-wrap { position: fixed; right: 18px; bottom: 18px; z-index: 60; display:flex; flex-direction: column; align-items: flex-end; gap:10px; transition: opacity .25s ease, transform .25s ease; }
-    .fab-wrap.is-hidden { opacity:0; pointer-events:none; transform: translateY(10px) scale(.98); }
-
-    .fab { background: linear-gradient(180deg, var(--brand), var(--brand-2)); color:#0b0f14; border:none; border-radius: 999px; padding: 14px 18px; font-weight:800; letter-spacing:.02em; cursor:pointer; box-shadow: 0 10px 28px rgba(34,197,94,.32), 0 0 22px rgba(34,197,94,.35); display:flex; align-items:center; gap:10px; transition: transform .25s ease, box-shadow .25s ease; }
-    .fab svg { filter: drop-shadow(0 0 8px rgba(34,197,94,.5)); }
-    .fab:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(34,197,94,.38), 0 0 36px rgba(34,197,94,.55); }
-
-    /* Tooltip (neon style) */
-    .fab-tip { position: relative; right: 0; background: rgba(17,24,39,.92); color:#e5e7eb; border:1px solid rgba(34,197,94,.4); padding: 8px 10px; border-radius: 10px; font-size:.88rem; font-weight:600; opacity:0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, box-shadow .25s ease; text-shadow: 0 0 6px rgba(34,197,94,.35); box-shadow: 0 0 0 0 rgba(34,197,94,.0), 0 10px 28px rgba(0,0,0,.35); }
-    .fab-tip::after { content:""; position:absolute; bottom:-6px; right:14px; width:10px; height:10px; background: rgba(17,24,39,.92); border-right:1px solid rgba(34,197,94,.4); border-bottom:1px solid rgba(34,197,94,.4); transform: rotate(45deg); }
-
-    .fab-wrap:hover .fab-tip, .fab:focus-visible + .fab-tip { opacity:1; transform: translateY(0); box-shadow: 0 0 18px rgba(34,197,94,.35), 0 10px 28px rgba(0,0,0,.45); }
-
-    /* Pulse animation for first appearance */
-    @keyframes fabPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,.4); } 50% { transform: scale(1.05); box-shadow: 0 0 12px 6px rgba(34,197,94,.25); } }
-    .fab.pulse { animation: fabPulse 1.6s ease-in-out 2; }
-
-    footer { text-align:center; padding: 24px 16px; background:#0b0f14; border-top:1px solid #12202a; color:#9ca3af; }
-
-    @media (max-width: 520px){ .fab { padding: 12px 14px; font-size:.95rem; } }
-    @media (prefers-reduced-motion: reduce){ .fab:hover { transform:none; box-shadow:none; } .hero h1 { animation:none; } }
-    @media (max-width: 900px){ .gallery-grid{ grid-template-columns: repeat(2,1fr);} .hero h1{ font-size: 2.4rem; } }
-    @media (max-width: 600px){ .gallery-grid{ grid-template-columns: 1fr;} .hero h1{ font-size:2rem;} }
   </style>
-  <link rel="canonical" href="https://scribbyforge.com/" />
-  <!-- Plausible Analytics (replace domain if different) -->
-  <script defer data-domain="scribbyforge.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <a class="brand" href="#intro">
-        <img class="brand-logo" src="images/dragon2logo.png" alt="Scribbyforge logo" />
-        <span>Scribbyforge</span>
-      </a>
-      <div class="nav-links">
-        <a href="#intro">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <nav>
+    <div class="logo"><img src="./images/dragon2logo.png" alt="Scribbyforge Logo"></div>
+    <div>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.etsy.com/shop/ScribbybyKen" target="_blank">Etsy Store</a>
     </div>
+  </nav>
+
+  <header>
+    <h1>Scribbyforge</h1>
+    <p>3D Printed Gifts • Custom Creations • Handmade Magic</p>
   </header>
 
-  <section id="intro" class="hero">
-    <div class="container">
-      <h1>3D Printed Gifts & Custom Prints</h1>
-      <p>Turning your ideas into tangible keepsakes and unique gifts.</p>
-      <a class="btn-etsy" href="https://www.etsy.com/shop/ScribbybyKen" target="_blank" rel="noopener">Visit Our Etsy Store</a>
+  <section id="gallery">
+    <h2>Our Work</h2>
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="gifts">Gifts</button>
+      <button class="filter-btn" data-filter="miniatures">Miniatures</button>
+      <button class="filter-btn" data-filter="decor">Decor</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="gifts">
+        <img src="/images/orange_dragon.webp" alt="Articulated Fire Dragon 3D Print" loading="lazy">
+        <div class="cap">Fire Dragon — Gift</div>
+      </div>
+      <div class="gallery-item" data-category="miniatures">
+        <img src="/images/jack&sam.webp" alt="Halloween Miniature Set" loading="lazy">
+        <div class="cap">Jack & Sam — Miniatures</div>
+      </div>
+      <div class="gallery-item" data-category="miniatures">
+        <img src="/images/art.webp" alt="Creepy Clown Figurine" loading="lazy">
+        <div class="cap">Clown Figurine — Miniature</div>
+      </div>
+      <div class="gallery-item" data-category="miniatures">
+        <img src="/images/Horror.webp" alt="Halloween Horror Set" loading="lazy">
+        <div class="cap">Halloween Set — Miniatures</div>
+      </div>
+      <div class="gallery-item" data-category="decor">
+        <img src="/images/psnake.webp" alt="Articulated Snake 3D Print" loading="lazy">
+        <div class="cap">Serpent Dragon — Decor</div>
+      </div>
+      <div class="gallery-item" data-category="gifts">
+        <img src="/images/Toothles.webp" alt="Toothless Dragon 3D Print" loading="lazy">
+        <div class="cap">Toothless Dragon — Gift</div>
+      </div>
     </div>
   </section>
 
-  <section id="gallery">
-    <div class="container">
-      <h3>Gallery</h3>
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="gifts">Gifts</button>
-        <button class="filter-btn" data-filter="miniatures">Miniatures</button>
-        <button class="filter-btn" data-filter="decor">Decor</button>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-category="gifts">
-          <img src="images/" alt="Gift Print">
-        </div>
-        <div class="gallery-item" data-category="miniatures">
-          <img src="images/" alt="Miniature">
-        </div>
-        <div class="gallery-item" data-category="decor">
-          <img src="images/dragon2logo.png" alt="Decor">
-        </div>
-      </div>
+
+  <!-- Lightbox UI -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <span class="close" id="lbClose" aria-label="Close">✕</span>
+    <img id="lbImg" alt="Preview" />
+    <div class="caption" id="lbCap"></div>
+    <div class="nav">
+      <button id="lbPrev" aria-label="Previous">◀</button>
+      <button id="lbNext" aria-label="Next">▶</button>
     </div>
-  </section>
+  </div>
+
+  <script>
+    // Gallery filtering
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.classList.toggle('hidden', filter !== 'all' && item.dataset.category !== filter);
+        });
+      });
+    });
+
+    // Lightbox with captions and arrow nav
+    (function(){
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lbImg');
+      const cap = document.getElementById('lbCap');
+      const btnClose = document.getElementById('lbClose');
+      const btnPrev = document.getElementById('lbPrev');
+      const btnNext = document.getElementById('lbNext');
+      let currentIndex = -1;
+      const getVisibleItems = () => Array.from(document.querySelectorAll('.gallery-item:not(.hidden) img'));
+
+      function openAt(index){
+        const items = getVisibleItems();
+        if (!items.length) return; 
+        currentIndex = (index + items.length) % items.length;
+        const el = items[currentIndex];
+        img.src = el.src; 
+        cap.textContent = el.closest('.gallery-item').querySelector('.cap')?.textContent || el.alt || '';
+        box.classList.add('open');
+      }
+      function close(){ box.classList.remove('open'); }
+      function next(){ openAt(currentIndex + 1); }
+      function prev(){ openAt(currentIndex - 1); }
+
+      document.querySelectorAll('.gallery-item img').forEach((el, i) => {
+        el.addEventListener('click', () => openAt(i));
+      });
+      btnClose.addEventListener('click', close);
+      box.addEventListener('click', (e) => { if (e.target === box) close(); });
+      btnNext.addEventListener('click', next);
+      btnPrev.addEventListener('click', prev);
+      window.addEventListener('keydown', (e)=>{
+        if (!box.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
+  </script>
+
 
 <section id="contact">
   <div class="container">
@@ -218,41 +207,9 @@
     }
   });
 </script>
-
-  <footer>
-    <p>&copy; 2025 Scribbyforge. All rights reserved.</p>
+ <footer>
+    <p>© 2025 Scribbyforge. All rights reserved.</p>
   </footer>
-
-  <!-- Floating action area: button + tooltip (initially hidden) -->
-  <div class="fab-wrap is-hidden" id="fabWrap">
-    <button class="fab" id="fabQuote" aria-describedby="fabTip">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="#0b0f14" stroke-width="2.2" stroke-linecap="round"/></svg>
-      Get a Quote
-    </button>
-    <span class="fab-tip" id="fabTip" role="tooltip">Contact us for custom prints</span>
-  </div>
-
-  <script>
-    // Show FAB after scrolling a bit + first-time pulse
-    const wrap = document.getElementById('fabWrap');
-    const fab = document.getElementById('fabQuote');
-    const threshold = 220; let pulsePlayed = false;
-
-    const toggleFab = () => {
-      if (window.scrollY > threshold) {
-        wrap.classList.remove('is-hidden');
-        if (!pulsePlayed) { fab.classList.add('pulse'); pulsePlayed = true; setTimeout(()=>fab.classList.remove('pulse'), 3200); }
-      } else {
-        wrap.classList.add('is-hidden');
-      }
-    };
-    window.addEventListener('scroll', toggleFab);
-    window.addEventListener('load', toggleFab);
-
-    // Click → scroll to Contact
-    fab.addEventListener('click', () => {
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
+
